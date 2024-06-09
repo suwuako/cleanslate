@@ -44,5 +44,5 @@ class CleanSlateBot:
 
 
 if __name__ == '__main__':
-  CleanSlateBot.run()
+  CleanSlateBot().run()
 
