@@ -12,7 +12,7 @@ import secret
     A discord bot to be used by Moderators to manage messages in large numbers.
 """
 class CleanSlateBot:
-  def __init__(self, spreadsheet_obj):
+  def __init__(self):
     @bot.event
     async def on_ready():
       print(f'We have logged in as {bot.user}')
@@ -20,8 +20,6 @@ class CleanSlateBot:
     @bot.event
     async def on_disconnect():
       print("Bot has disconnected.")
-    
-    self.spreadsheet = spreadsheet_obj
   
   def commands(self):
     @bot.command()
