@@ -32,7 +32,10 @@ class CleanSlateBot:
             if (None == target):
                 await message.channel.send('target not specified. Try again.')
                 return  
-            
+
+            # we could instead run one command to get ALL message_ids that match a user and store it in a list and then handle the deletion later 
+            # since i don't think getting messages take up the ratelimit
+
             end_date = datetime.datetime(2021, 5, 1)
             async for historical_message in message.channel.history(limit=None, before=end_date):
                 if (target == historical_message.author.id):
