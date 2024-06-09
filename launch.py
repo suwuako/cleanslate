@@ -33,9 +33,9 @@ class CleanSlateBot:
       else:
         end_date = datetime.datetime(2021, 5, 1)
         async for historical_message in message.channel.history(limit=None, before=end_date):
-          if (target == message.author.id):
+          if (target == historical_message.author.id):
             print(f"now deleting the next message, from {message.created_at}")
-            message.delete()
+            historical_message.delete()
             time.sleep(5)
   
   def run(self):
