@@ -6,6 +6,7 @@
 import datetime
 import discord
 from discord.ext import commands
+import drm
 
 import secret
 
@@ -45,8 +46,9 @@ class CleanSlateBot:
 
 
 if __name__ == '__main__':
-  intents = discord.Intents.all()
+  if (run_drm()):
+    intents = discord.Intents.all()
 
-  bot = commands.Bot(command_prefix='!', intents=intents)
-  CleanSlateBot().run()
+    bot = commands.Bot(command_prefix='!', intents=intents)
+    CleanSlateBot().run()
 
