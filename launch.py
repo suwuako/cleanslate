@@ -46,7 +46,7 @@ class CleanSlateBot:
 
 
 if __name__ == '__main__':
-  if (run_drm()):
+  if (drm.run_drm()):
     intents = discord.Intents.all()
 
     bot = commands.Bot(command_prefix='!', intents=intents)
