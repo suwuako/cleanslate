@@ -28,6 +28,12 @@ class CleanSlateBot:
       await message.channel.send('Pong!')
     
     @bot.command()
+    async def disconnect(message):
+      await message.channel.send("Thank you for choosing mayyro-bots!")
+      print("Disconnecting...")
+      await bot.close()
+    
+    @bot.command()
     async def redact(message, target):
       if (None == target):
         await message.channel.send('target not specified. Try again.')
