@@ -9,6 +9,7 @@ from discord.ext import commands
 
 import secret
 
+
 """
     A discord bot to be used by Moderators to manage messages in large numbers.
 """
@@ -18,15 +19,13 @@ class CleanSlateBot:
     async def on_ready():
       print(f'We have logged in as {bot.user}')
     
+      await self.load_cogs()
+
     @bot.event
     async def on_disconnect():
       print("Bot has disconnected.")
   
   def commands(self):
-    @bot.command()
-    async def ping(message):
-      await message.channel.send('Pong!')
-    
     @bot.command()
     async def redact(message, target):
       if (None == target):
@@ -39,6 +38,9 @@ class CleanSlateBot:
             historical_message.delete()
             time.sleep(5)
   
+  async def load_cogs(self):
+    await bot.load_extension("cogs.user_commands.reply")
+
   def run(self):
     self.commands()
     bot.run(secret.credentials.bottoken)
