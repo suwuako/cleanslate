@@ -29,12 +29,19 @@ class CleanSlateBot:
     
     @bot.command()
     async def disconnect(message):
+      if (message.author.id not in secret.credentials.privileged_users):
+        await message.channel.send("You got no perms")
+        return
+
       await message.channel.send("Thank you for choosing mayyro-bots!")
       print("Disconnecting...")
       await bot.close()
     
     @bot.command()
     async def redact(message, target):
+      if (message.author.id not in secret.credentials.privileged_users):
+        await message.channel.send("You got no perms")
+        return
       if (None == target):
         await message.channel.send('target not specified. Try again.')
       else:
