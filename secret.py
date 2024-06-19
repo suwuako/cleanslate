@@ -1,2 +1,3 @@
 class credentials:
-  bottoken = 'bot-token-here'
+     bottoken = ''
+     privileged_users = ['851019254236708864']
