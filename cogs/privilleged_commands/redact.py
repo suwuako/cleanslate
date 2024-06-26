@@ -33,7 +33,7 @@ class Redact(commands.Cog):
             print(f"{historical_message.content}")
             if (target == historical_message.author.id):
                 print(f"now deleting the next message, from {historical_message.created_at}")
-                historical_message.delete()
+                await historical_message.delete(delay=1.2)
                 asyncio.sleep(5)
 
 async def setup(bot):
