@@ -26,25 +26,12 @@ class CleanSlateBot:
         @bot.event
         async def on_disconnect():
             print("Bot has disconnected.")
-  
-    def commands(self):
-        @bot.command()
-        async def redact(message, target):
-            if (None == target):
-                await message.channel.send('target not specified. Try again.')
-            else:
-                end_date = datetime.datetime(2021, 5, 1)
-                async for historical_message in message.channel.history(limit=None, before=end_date):
-                    if (target == historical_message.author.id):
-                        print(f"now deleting the next message, from {message.created_at}")
-                        historical_message.delete()
-                        time.sleep(5)
 
     async def load_cogs(self):
        await bot.load_extension("cogs.user_commands.reply")
+       await bot.load_extension("cogs.privilleged_commands.redact")
 
     def run(self):
-        self.commands()
         bot.run(secret.credentials.bottoken)
         
 
