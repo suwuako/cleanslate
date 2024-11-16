@@ -1,4 +1,4 @@
 class credentials:
-     bottoken = 'MTI0OTIxMDA2MTIyMjMxODE1NA.GK0zNP.eNB2hTPqy47HrwjyT_F3xjuYa4WB-uSDvD8Gnc'
-     privileged_users = [851019254236708864, 431491115775164418, 581652477988962305]
+     bottoken = ''
+     privileged_users = []
 
